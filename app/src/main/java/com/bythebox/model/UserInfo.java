@@ -42,5 +42,14 @@ public class UserInfo {
         mIsLoggedIn = mPref.getBoolean(mContext.getString(R.string.user_logged_in_key), false);
     }
 
-    public
+    public boolean isLoggedIn() {
+        return mIsLoggedIn;
+    }
+
+    public void setIsLoggedIn(boolean mIsLoggedIn) {
+        this.mIsLoggedIn = mIsLoggedIn;
+        SharedPreferences.Editor e = mPref.edit();
+        e.putBoolean(mContext.getString(R.string.user_logged_in_key), true);
+        e.apply();
+    }
 }
